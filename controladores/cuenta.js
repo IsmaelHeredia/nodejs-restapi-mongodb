@@ -1,5 +1,4 @@
 var express = require("express");
-var bd = require("../funciones/conexion");
 var helper = require("../funciones/helper.js");
 var router = express.Router();
 

@@ -10,13 +10,11 @@ const passport = require("passport");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 
-var bd = require("./funciones/conexion");
-
 const Usuario = require("./modelos/usuario.model");
 
 require("dotenv").config();
 
-mongoose.connect("mongodb://localhost:27017/sistemaV2");
+mongoose.connect(process.env.MONGO_URL);
 mongoose.Promise = global.Promise;
 
 db = mongoose.connection;

@@ -1,5 +1,4 @@
 var express = require("express");
-var bd = require("../funciones/conexion");
 var helper = require("../funciones/helper.js");
 var router = express.Router();
 
@@ -31,15 +30,9 @@ router.post("/", function (req, res) {
       } else {
           if(resultado != null && resultado != "") {
 
-            //console.log(resultado);
-
             var id = String(resultado["_id"]);
             var clave_bd = resultado["clave"];
             var tipo = resultado["tipo"];
-
-            //console.log(id);
-            //console.log(clave_bd);
-            //console.log(tipo);
 
             if(bcrypt.compareSync(clave, clave_bd)) {
               const payload = {

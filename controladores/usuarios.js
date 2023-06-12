@@ -1,5 +1,4 @@
 var express = require("express");
-var bd = require("../funciones/conexion");
 var helper = require("../funciones/helper.js");
 var router = express.Router();
 
@@ -20,7 +19,7 @@ router.get("/", function (req, res) {
 router.get("/:id", function (req, res) {
   var id = req.params.id;
 
-  Usuario.find({_id: id}, function (error, resultado) {
+  Usuario.findOne({_id: id}, function (error, resultado) {
     if (error){
         res.status(400).json({estado:400, mensaje:"Error cargando usuario"});
     } else {
